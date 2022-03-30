@@ -5,8 +5,8 @@
       <p style="color:white;" class="text-2xl text-white py-4" >
         Masuk dan daptkan bonus tiap minggunya
       </p>
-      <form action="">
-        <div class="">
+      <form action="" @click="fetchAPIData">
+        <div class="" >
           <div class="absolute mt-6 px-8">
             <svg
               width="36"
@@ -49,6 +49,7 @@
             <input
               type="text"
               placeholder="Kartikasar"
+              v-model="name"
               style="background-color: #28223C;"
               class="w-full px-24 py-5 mt-2 blue text-white rounded-sm outline-none focus:ring-1 focus:ring-blue-600"
             />
@@ -83,6 +84,7 @@
             </div>
             <input
               type="password"
+              v-model="password"
               placeholder=" Masukana Password"
               style="background-color: #28223C;"
               class="w-full px-24 py-5 mt-3 bg-sky-900 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -91,10 +93,10 @@
           </div>
           <div class="">
             <div  style="background-color: #5B32FD; color:white;" class="absolute text-white h-15 bg-black px-12 py-5 mt-3">
-              <button>Captcha</button>
+              <button class="border-r-4  ">Captcha</button>
             </div>
             <input
-              type="password"
+              type="code"
               placeholder=" Enter this code here"
               
               class="w-full px-44 py-5  mt-3 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -118,6 +120,27 @@
     </div>
   </div>
 </template>
+
+<script>
+export default{
+  name:'login',
+  data(){
+    
+    return{
+      name:'',
+      password:'',
+      apiKey: 'https://apiagent.cikatechdev.fun/api/v1'
+    }
+    
+  },
+   methods: {
+        fetchAPIData(event ) { 
+          event.preventDefault()
+          console.log(this.name)
+        }
+    }
+}
+</script>
 
 <style>
 .nuxt-logo {

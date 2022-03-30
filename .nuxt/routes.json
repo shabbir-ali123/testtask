@@ -2,15 +2,13 @@
   {
     "name": "Register",
     "path": "/Register",
-    "component": "C:\\\\my projects\\\\my-porject\\\\pages\\\\Register.vue",
-    "chunkName": "pages/Register",
-    "_name": "_9832ffc0"
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Register.vue",
+    "chunkName": "pages/Register"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\my projects\\\\my-porject\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_98f08776"
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
   }
 ]

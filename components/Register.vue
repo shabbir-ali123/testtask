@@ -1,7 +1,7 @@
 <template>
   <div class="primary min-h-screen">
     <div class="main-wrapper">
-      <form class="wrapper">
+      <form class="wrapper" @click="fetchAPIData" >
           <h3 class="register text-6xl text-white font-bold ">Register</h3>
         <div class="flex justify-center py-10 ">
           <div>
@@ -45,6 +45,7 @@
             </div>
             <div>
               <input
+              v-model="Username"
                 type="text"
                 placeholder="Username 6-16 karakter standar"
                 style="background-color: #28223c"
@@ -78,6 +79,7 @@
               </div>
 
               <input
+              v-model="password"
                 type="password"
                 placeholder=" Password (6 karakter atau lebih)"
                 style="background-color: #28223c"
@@ -111,6 +113,7 @@
               </div>
 
               <input
+              v-model="password"
                 type="password"
                 placeholder=" Password sekali lagi"
                 style="background-color: #28223c"
@@ -156,6 +159,7 @@
               </div>
 
               <input
+              v-model="email"
                 type="email"
                 placeholder=" Email"
                 style="background-color: #28223c"
@@ -189,6 +193,7 @@
               </div>
 
               <input
+              v-model="phone"
                 type="number"
                 placeholder=" Telepon"
                 style="background-color: #28223c"
@@ -288,7 +293,28 @@
     </div>
   </div>
 </template>
-
+<script>
+export default{
+  name:'Register',
+  data(){
+    return{
+      Username:'',
+      password:'',
+      email:'',
+      phone:'',
+      apiKey: 'https://apiagent.cikatechdev.fun/api/v1'
+    }
+    
+  },
+   methods: {
+        fetchAPIData(event ) { 
+          event.preventDefault()
+          console.log (this.email)
+         
+        }
+    }
+}
+</script>
 <style>
 .main-wrapper{
   /* padding:50px 0; */
@@ -321,6 +347,7 @@ color: white;
 }
 input {
   background-color: #28223c;
+  color: white;
 }
 .btn {
   color: white;
