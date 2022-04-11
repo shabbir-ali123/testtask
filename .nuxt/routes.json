@@ -1,14 +1,23 @@
 [
   {
+    "name": "Member",
+    "path": "/Member",
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Member.vue",
+    "chunkName": "pages/Member",
+    "_name": "_3905adf0"
+  },
+  {
     "name": "Register",
     "path": "/Register",
     "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Register.vue",
-    "chunkName": "pages/Register"
+    "chunkName": "pages/Register",
+    "_name": "_2dd679de"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\my projects\\\\forms\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_c7d67218"
   }
 ]

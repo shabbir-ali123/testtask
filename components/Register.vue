@@ -1,10 +1,9 @@
 <template>
-  <div class="primary min-h-screen">
-    <div class="main-wrapper">
-      <form class="wrapper" @click="fetchAPIData" >
-          <h3 class="register text-6xl text-white font-bold ">Register</h3>
-        <div class="flex justify-center py-10 ">
-          <div>
+  <div class="primary min-h-screen ">
+    <div class="md:flex justify-center items-center  gap-4 py-10 mx-8 ">
+  <div class="md:col-span-6">
+  <h3 class="register text-6xl text-white font-bold">Register</h3>
+       <div  >   
             <div class="absolute mt-6 px-8">
               <svg
                 width="36"
@@ -45,7 +44,7 @@
             </div>
             <div>
               <input
-              v-model="Username"
+                v-model="userData.username"
                 type="text"
                 placeholder="Username 6-16 karakter standar"
                 style="background-color: #28223c"
@@ -78,15 +77,7 @@
                 </svg>
               </div>
 
-              <input
-              v-model="password"
-                type="password"
-                placeholder=" Password (6 karakter atau lebih)"
-                style="background-color: #28223c"
-                class="w-full px-24 py-5 mt-3 bg-sky-900 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-              />
-            </div>
-            <div class="">
+               <div class="relative">
               <div class="absolute mt-6 px-8">
                 <svg
                   width="31"
@@ -112,9 +103,88 @@
                 </svg>
               </div>
 
+              <div
+                class="absolute inset-y-0 right-0 top-6 flex items-center px-2"
+              >
+                <label
+                  class="rounded px-2 py-1 text-sm text-gray-600 font-mono cursor-pointer "
+                  for="toggle"
+                >
+                  <svg
+                    width="31"
+                    height="19"
+                    viewBox="0 0 31 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.4"
+                      d="M20.3806 9.05039C20.3806 11.4371 18.361 13.3719 15.8698 13.3719C13.3786 13.3719 11.3591 11.4371 11.3591 9.05039C11.3591 6.66364 13.3786 4.72884 15.8698 4.72884C18.361 4.72881 20.3806 6.66366 20.3806 9.05039ZM15.878 0.0522766C13.2986 0.0637182 10.625 0.691651 8.09413 1.89386C6.21496 2.82326 4.38361 4.1345 2.79391 5.75297C2.01313 6.57914 1.01727 7.77542 0.856262 9.05179C0.87529 10.1574 2.06125 11.5221 2.79391 12.3506C4.28464 13.9055 6.0683 15.1802 8.09413 16.2107C10.4543 17.3561 13.0667 18.0156 15.878 18.0523C18.4598 18.0407 21.1328 17.4055 23.6609 16.2107C25.5401 15.2813 27.3723 13.9691 28.962 12.3506C29.7428 11.5245 30.7387 10.3282 30.8997 9.05179C30.8807 7.94617 29.6947 6.58144 28.962 5.75292C27.4713 4.19802 25.6867 2.92435 23.6609 1.89381C21.3019 0.749259 18.6831 0.0943124 15.878 0.0522766ZM15.8761 2.28671C19.7847 2.28671 22.9532 5.31594 22.9532 9.05277C22.9532 12.7896 19.7847 15.8188 15.8761 15.8188C11.9675 15.8188 8.79897 12.7895 8.79897 9.05277C8.79897 5.31594 11.9675 2.28671 15.8761 2.28671Z"
+                      fill="white"
+                    />
+                  </svg>
+                </label>
+              </div>
               <input
-              v-model="password"
                 type="password"
+                v-model="userData.password"
+                placeholder=" Password (6 karakter atau lebih)"
+                style="background-color: #28223c"
+                class="w-full px-24 py-5 mt-3 bg-sky-900 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+              />
+            </div>
+            </div>
+              <div class="relative">
+              <div class="absolute mt-6 px-8">
+                <svg
+                  width="31"
+                  height="34"
+                  viewBox="0 0 31 34"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M25.4492 15.593H5.0189C3.40699 15.593 2.10028 16.8997 2.10028 18.5116V28.7268C2.10028 30.3387 3.40699 31.6454 5.0189 31.6454H25.4492C27.0611 31.6454 28.3678 30.3387 28.3678 28.7268V18.5116C28.3678 16.8997 27.0611 15.593 25.4492 15.593Z"
+                    stroke="white"
+                    stroke-width="3.50234"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.93909 15.593V9.75574C7.93909 7.82058 8.70783 5.96467 10.0762 4.59631C11.4446 3.22794 13.3005 2.4592 15.2356 2.4592C17.1708 2.4592 19.0267 3.22794 20.3951 4.59631C21.7634 5.96467 22.5322 7.82058 22.5322 9.75574V15.593"
+                    stroke="white"
+                    stroke-width="3.50234"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div
+                class="absolute inset-y-0 right-0 top-6 flex items-center px-2"
+              >
+                <label
+                  class="rounded px-2 py-1 text-sm text-gray-600 font-mono cursor-pointer js-password-label"
+                  for="toggle"
+                >
+                  <svg
+                    width="31"
+                    height="19"
+                    viewBox="0 0 31 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.4"
+                      d="M20.3806 9.05039C20.3806 11.4371 18.361 13.3719 15.8698 13.3719C13.3786 13.3719 11.3591 11.4371 11.3591 9.05039C11.3591 6.66364 13.3786 4.72884 15.8698 4.72884C18.361 4.72881 20.3806 6.66366 20.3806 9.05039ZM15.878 0.0522766C13.2986 0.0637182 10.625 0.691651 8.09413 1.89386C6.21496 2.82326 4.38361 4.1345 2.79391 5.75297C2.01313 6.57914 1.01727 7.77542 0.856262 9.05179C0.87529 10.1574 2.06125 11.5221 2.79391 12.3506C4.28464 13.9055 6.0683 15.1802 8.09413 16.2107C10.4543 17.3561 13.0667 18.0156 15.878 18.0523C18.4598 18.0407 21.1328 17.4055 23.6609 16.2107C25.5401 15.2813 27.3723 13.9691 28.962 12.3506C29.7428 11.5245 30.7387 10.3282 30.8997 9.05179C30.8807 7.94617 29.6947 6.58144 28.962 5.75292C27.4713 4.19802 25.6867 2.92435 23.6609 1.89381C21.3019 0.749259 18.6831 0.0943124 15.878 0.0522766ZM15.8761 2.28671C19.7847 2.28671 22.9532 5.31594 22.9532 9.05277C22.9532 12.7896 19.7847 15.8188 15.8761 15.8188C11.9675 15.8188 8.79897 12.7895 8.79897 9.05277C8.79897 5.31594 11.9675 2.28671 15.8761 2.28671Z"
+                      fill="white"
+                    />
+                  </svg>
+                </label>
+              </div>
+              <input
+                type="password"
+                v-model="userData.password_again"
                 placeholder=" Password sekali lagi"
                 style="background-color: #28223c"
                 class="w-full px-24 py-5 mt-3 bg-sky-900 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -159,7 +229,7 @@
               </div>
 
               <input
-              v-model="email"
+                v-model="userData.email"
                 type="email"
                 placeholder=" Email"
                 style="background-color: #28223c"
@@ -193,7 +263,7 @@
               </div>
 
               <input
-              v-model="phone"
+                v-model="userData.phone"
                 type="number"
                 placeholder=" Telepon"
                 style="background-color: #28223c"
@@ -201,11 +271,13 @@
               />
             </div>
           </div>
-          <div class="mt-1 px-8">
+  </div>
+  <div class="md:col-span-6   ">
+        <div >
             <div class="absolute mt-6 px-6">
               <svg
-                width="29"
-                height="30"
+                width="40"
+                height="40"
                 viewBox="0 0 19 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -216,24 +288,38 @@
                 />
               </svg>
             </div>
-         
-              <select
-                type="text"
-                placeholder="Kartikasar"
-                style="background-color: #28223c"
-                class="w-full px-24 py-5 mt-2 blue text-white rounded-sm outline-none focus:ring-1 focus:ring-blue-600"
-              >
-              <option value="Pilih Bank">Pilih Bank</option>
-              </select>
-            <div class="absolute mt-6 px-6">
-            
-<svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.6352 12.6273H7.18649V14.1786H5.6352V12.6273ZM9.51343 11.076H14.943V12.6273H9.51343V11.076ZM9.51343 7.97346H14.943V9.52475H9.51343V7.97346ZM5.6352 6.42217H7.18649V11.076H5.6352V6.42217ZM4.85955 3.31958C4.44812 3.31958 4.05354 3.48302 3.76262 3.77394C3.4717 4.06487 3.30826 4.45944 3.30826 4.87087V15.7299C3.30826 16.1414 3.4717 16.5359 3.76262 16.8269C4.05354 17.1178 4.44812 17.2812 4.85955 17.2812H15.7186C16.13 17.2812 16.5246 17.1178 16.8155 16.8269C17.1065 16.5359 17.2699 16.1414 17.2699 15.7299V4.87087C17.2699 4.45944 17.1065 4.06487 16.8155 3.77394C16.5246 3.48302 16.13 3.31958 15.7186 3.31958H4.85955Z" fill="white"/>
-</svg>
 
+            <select
+             v-model="userData.bank_name"
+             placeholder="bank"
+              type="text"
+              style="background-color: #28223c"
+              class="w-full px-24 py-5 mt-2 blue text-white rounded-sm outline-none focus:ring-1 focus:ring-blue-600"
+            >
+              <option >1</option>
+               <option >2</option>
+                <option >3</option>
+               <option >4</option>
+                <option >5</option>
+               <option >6</option>
+            </select>
+            <div class="absolute mt-6 px-6">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.6352 12.6273H7.18649V14.1786H5.6352V12.6273ZM9.51343 11.076H14.943V12.6273H9.51343V11.076ZM9.51343 7.97346H14.943V9.52475H9.51343V7.97346ZM5.6352 6.42217H7.18649V11.076H5.6352V6.42217ZM4.85955 3.31958C4.44812 3.31958 4.05354 3.48302 3.76262 3.77394C3.4717 4.06487 3.30826 4.45944 3.30826 4.87087V15.7299C3.30826 16.1414 3.4717 16.5359 3.76262 16.8269C4.05354 17.1178 4.44812 17.2812 4.85955 17.2812H15.7186C16.13 17.2812 16.5246 17.1178 16.8155 16.8269C17.1065 16.5359 17.2699 16.1414 17.2699 15.7299V4.87087C17.2699 4.45944 17.1065 4.06487 16.8155 3.77394C16.5246 3.48302 16.13 3.31958 15.7186 3.31958H4.85955Z"
+                  fill="white"
+                />
+              </svg>
             </div>
             <div>
               <input
+               v-model="userData.account_number"
                 type="text"
                 placeholder="No Rekening"
                 style="background-color: #28223c"
@@ -241,14 +327,22 @@
               />
             </div>
             <div class="absolute mt-6 px-6">
-            
-<svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.6352 12.1796H7.18649V13.7309H5.6352V12.1796ZM9.51343 10.6283H14.943V12.1796H9.51343V10.6283ZM9.51343 7.5257H14.943V9.077H9.51343V7.5257ZM5.6352 5.97441H7.18649V10.6283H5.6352V5.97441ZM4.85955 2.87183C4.44812 2.87183 4.05354 3.03527 3.76262 3.32619C3.4717 3.61711 3.30826 4.01169 3.30826 4.42312V15.2822C3.30826 15.6936 3.4717 16.0882 3.76262 16.3791C4.05354 16.67 4.44812 16.8335 4.85955 16.8335H15.7186C16.13 16.8335 16.5246 16.67 16.8155 16.3791C17.1065 16.0882 17.2699 15.6936 17.2699 15.2822V4.42312C17.2699 4.01169 17.1065 3.61711 16.8155 3.32619C16.5246 3.03527 16.13 2.87183 15.7186 2.87183H4.85955Z" fill="white"/>
-</svg>
-
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.6352 12.1796H7.18649V13.7309H5.6352V12.1796ZM9.51343 10.6283H14.943V12.1796H9.51343V10.6283ZM9.51343 7.5257H14.943V9.077H9.51343V7.5257ZM5.6352 5.97441H7.18649V10.6283H5.6352V5.97441ZM4.85955 2.87183C4.44812 2.87183 4.05354 3.03527 3.76262 3.32619C3.4717 3.61711 3.30826 4.01169 3.30826 4.42312V15.2822C3.30826 15.6936 3.4717 16.0882 3.76262 16.3791C4.05354 16.67 4.44812 16.8335 4.85955 16.8335H15.7186C16.13 16.8335 16.5246 16.67 16.8155 16.3791C17.1065 16.0882 17.2699 15.6936 17.2699 15.2822V4.42312C17.2699 4.01169 17.1065 3.61711 16.8155 3.32619C16.5246 3.03527 16.13 2.87183 15.7186 2.87183H4.85955Z"
+                  fill="white"
+                />
+              </svg>
             </div>
             <div>
               <input
+                v-model="userData.account_name"
                 type="text"
                 placeholder="Nama Rekening"
                 style="background-color: #28223c"
@@ -256,12 +350,22 @@
               />
             </div>
             <div class="absolute mt-6 px-6">
-             <svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.6352 12.1796H7.18649V13.7309H5.6352V12.1796ZM9.51343 10.6283H14.943V12.1796H9.51343V10.6283ZM9.51343 7.5257H14.943V9.077H9.51343V7.5257ZM5.6352 5.97441H7.18649V10.6283H5.6352V5.97441ZM4.85955 2.87183C4.44812 2.87183 4.05354 3.03527 3.76262 3.32619C3.4717 3.61711 3.30826 4.01169 3.30826 4.42312V15.2822C3.30826 15.6936 3.4717 16.0882 3.76262 16.3791C4.05354 16.67 4.44812 16.8335 4.85955 16.8335H15.7186C16.13 16.8335 16.5246 16.67 16.8155 16.3791C17.1065 16.0882 17.2699 15.6936 17.2699 15.2822V4.42312C17.2699 4.01169 17.1065 3.61711 16.8155 3.32619C16.5246 3.03527 16.13 2.87183 15.7186 2.87183H4.85955Z" fill="white"/>
-</svg>
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.6352 12.1796H7.18649V13.7309H5.6352V12.1796ZM9.51343 10.6283H14.943V12.1796H9.51343V10.6283ZM9.51343 7.5257H14.943V9.077H9.51343V7.5257ZM5.6352 5.97441H7.18649V10.6283H5.6352V5.97441ZM4.85955 2.87183C4.44812 2.87183 4.05354 3.03527 3.76262 3.32619C3.4717 3.61711 3.30826 4.01169 3.30826 4.42312V15.2822C3.30826 15.6936 3.4717 16.0882 3.76262 16.3791C4.05354 16.67 4.44812 16.8335 4.85955 16.8335H15.7186C16.13 16.8335 16.5246 16.67 16.8155 16.3791C17.1065 16.0882 17.2699 15.6936 17.2699 15.2822V4.42312C17.2699 4.01169 17.1065 3.61711 16.8155 3.32619C16.5246 3.03527 16.13 2.87183 15.7186 2.87183H4.85955Z"
+                  fill="white"
+                />
+              </svg>
             </div>
             <div>
               <input
+             
                 type="text"
                 placeholder="Username Referal (bila ada)"
                 style="background-color: #28223c"
@@ -270,80 +374,93 @@
             </div>
           </div>
         </div>
-        <div class="flex justify-center ">
+  </div>
+  <Popup  v-if="hidePopup"   />
+     <div class="btn flex justify-center items-center max-w-3xl mx-auto  ">
+         
           <button
-            class="btn px-6 font-bold text-2xl  py-4 mt-4 text-white rounded-md hover:bg-rose-900"
+           @click="register"
+            class="btn px-6 font-bold text-2xl py-4  text-white rounded-md hover:bg-rose-900"
           >
             Register
           </button>
+    
         </div>
-        <div class="flex justify-center font-bold py-2">
-          <p class="white">Sudah punya account?</p>
-          <a
-            style="color: #fd1a79"
-            href="#"
-            class="px-2 underline text-rose-400"
-          >
-            Login disini</a
-          >
-          <!-- <span class="icon"><font-awesome-icon :icon="['fab', 'user-alt']"/></span>
-                 <fa icon="lock"/> -->
-        </div>
-      </form>
-    </div>
-  </div>
+</div>
 </template>
 <script>
-export default{
-  name:'Register',
-  data(){
-    return{
-      Username:'',
-      password:'',
-      email:'',
-      phone:'',
-      apiKey: 'https://apiagent.cikatechdev.fun/api/v1'
-    }
-    
+import Popup from './Popup.vue'
+export default {
+  name: "Register",
+  data() {
+    return {
+      hidePopup: false,
+      userData: {
+        username: "",
+        password: "",
+        password_again:"",
+        email: "",
+        phone: "",
+        bank_name: "",
+        account_number: "",
+        account_name: "",
+        
+      },
+    };
   },
-   methods: {
-        fetchAPIData(event ) { 
-          event.preventDefault()
-          console.log (this.email)
-         
-        }
-    }
-}
+  components:{
+    Popup
+  },
+  methods: {
+   async register(event) {
+     event.preventDefault()
+    
+     try {
+       const response = await this.$axios.post('register', this.userData)
+      //  console.log(response)
+        if (response.status == '201') {
+         this.hidePopup=true;
+      }
+     } catch(err) {
+    this.response.status = 'error'
+     }
+    },
+   
+  },
+};
 </script>
 <style>
-.main-wrapper{
+.main-wrapper {
   /* padding:50px 0; */
 }
 .primary {
   background-color: #201b2f;
+  
 }
-.wrapper{
+
+/* .wrapper{
   width: 80%;
   margin-left: 200px;
-}
-.register{
+} */
+.register {
   color: white;
-  margin-left: 200px;
-  padding: 30px 0;
+  padding: 15px 0 ;
+  /* margin-left: 200px; */
+  /* padding: 30px 0; */
 }
 
-
-select{
-  
+select {
   color: white;
 }
-select option { color: black; }
-select option:first-child{
+select option {
+  color: black;
+}
+select option:first-child {
   color: white;
 }
 
-.white{
-color: white;
+.white {
+  color: white;
 }
 input {
   background-color: #28223c;
@@ -352,8 +469,7 @@ input {
 .btn {
   color: white;
   background-color: #fd1a79;
-  width: 65%;
-  margin-right: 32px;
-  
+  width: 75%;
+  /* margin-right: 32px; */
 }
 </style>

@@ -1,4 +1,7 @@
 export { default as Login } from '../..\\components\\Login.vue'
+export { default as MemberList } from '../..\\components\\MemberList.vue'
+export { default as MemberTable } from '../..\\components\\MemberTable.vue'
+export { default as Popup } from '../..\\components\\Popup.vue'
 export { default as Register } from '../..\\components\\Register.vue'
 
 // nuxt/nuxt.js#8607
