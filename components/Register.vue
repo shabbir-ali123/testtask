@@ -300,10 +300,9 @@
             style="background-color: #28223c"
             class="w-full px-24 py-5 mt-2 blue text-white rounded-sm outline-none focus:ring-1 focus:ring-blue-600"
           >
-            <option value="BCA">BCA</option>
-            <option value="BNI">BNI</option>
-            <option value="BCA">BRI</option>
-            <option value="CIMB">CIMB</option>
+            <option v-for="bank in banks" :key="bank.id" :value="bank.id">
+              {{ bank.name }}
+            </option>
           </select>
           <div class="absolute mt-6 px-6">
             <svg
@@ -376,7 +375,7 @@
         </div>
       </div>
     </div>
-    <Popup :title="koss" />
+    <Popup v-if="hidePopup" />
     <div class="btn flex justify-center items-center max-w-3xl mx-auto">
       <button
         @click="register"
@@ -393,6 +392,24 @@ export default {
   name: "Register",
   data() {
     return {
+      banks: [
+        {
+          id: 1,
+          name: "BCA",
+        },
+        {
+          id: 3,
+          name: "BNI",
+        },
+        {
+          id: 4,
+          name: "BRI",
+        },
+        {
+          id: 5,
+          name: "CIMB",
+        },
+      ],
       hidePopup: false,
       userData: {
         username: "",
@@ -426,18 +443,12 @@ export default {
         x.type = "password";
       }
     },
-    async register(event) {
-      event.preventDefault();
-
+    async register() {
       try {
         const response = await this.$axios.post("register", this.userData);
-        //  console.log(response)
-        if (response.status == "201") {
-          this.hidePopup = true;
-        }
-      } catch (err) {
-        this.response.status = "error";
-      }
+        this.hidePopup = this.hidePopup = true;
+        // this.$router.push("/");
+      } catch (err) {}
     },
   },
 };

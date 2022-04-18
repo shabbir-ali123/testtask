@@ -1,12 +1,6 @@
 {
-  "Captcha": {
-    "description": "Auto imported from components/Captcha.vue"
-  },
   "Login": {
     "description": "Auto imported from components/Login.vue"
-  },
-  "LoginPopup": {
-    "description": "Auto imported from components/LoginPopup.vue"
   },
   "MemberTable": {
     "description": "Auto imported from components/MemberTable.vue"

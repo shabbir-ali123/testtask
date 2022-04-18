@@ -50,11 +50,7 @@
 <script>
 export default {
   data() {
-    return {
-      userData: {
-        title: "",
-      },
-    };
+    return {};
   },
   methods: {
     redirect() {

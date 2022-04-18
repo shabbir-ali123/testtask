@@ -132,7 +132,6 @@
               />
             </div>
           </div>
-          <Popup v-if="hidePopup" />
           <div class="flex items-baseline justify-between">
             <button
               type="submit"
@@ -163,7 +162,6 @@ export default {
   name: "login",
   data() {
     return {
-      hidePopup: false,
       userData: {
         user_account: "",
         password: "",
@@ -183,7 +181,6 @@ export default {
     async login(event) {
       event.preventDefault();
       try {
-        this.status = "pending";
         const response = await this.$axios.post("login", this.userData);
         if (response.status == "200") {
           localStorage.setItem("token", response.data.data.token);
