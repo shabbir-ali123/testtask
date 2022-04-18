@@ -1,10 +1,10 @@
 [
   {
-    "name": "Member",
-    "path": "/Member",
-    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Member.vue",
-    "chunkName": "pages/Member",
-    "_name": "_3905adf0"
+    "name": "member",
+    "path": "/member",
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\member\\\\index.vue",
+    "chunkName": "pages/member/index",
+    "_name": "_0caa329a"
   },
   {
     "name": "Register",
@@ -12,6 +12,20 @@
     "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Register.vue",
     "chunkName": "pages/Register",
     "_name": "_2dd679de"
+  },
+  {
+    "name": "Update",
+    "path": "/Update",
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\Update.vue",
+    "chunkName": "pages/Update",
+    "_name": "_21ca27b7"
+  },
+  {
+    "name": "member-slug",
+    "path": "/member/:slug",
+    "component": "C:\\\\my projects\\\\forms\\\\pages\\\\member\\\\_slug.vue",
+    "chunkName": "pages/member/_slug",
+    "_name": "_0af39152"
   },
   {
     "name": "index",

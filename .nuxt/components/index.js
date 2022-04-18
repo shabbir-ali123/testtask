@@ -1,8 +1,16 @@
+export { default as Captcha } from '../..\\components\\Captcha.vue'
 export { default as Login } from '../..\\components\\Login.vue'
-export { default as MemberList } from '../..\\components\\MemberList.vue'
+export { default as LoginPopup } from '../..\\components\\LoginPopup.vue'
 export { default as MemberTable } from '../..\\components\\MemberTable.vue'
 export { default as Popup } from '../..\\components\\Popup.vue'
 export { default as Register } from '../..\\components\\Register.vue'
+export { default as UpdateMember } from '../..\\components\\UpdateMember.vue'
+export { default as SvgBank } from '../..\\components\\Svg\\Bank.vue'
+export { default as SvgEmail } from '../..\\components\\Svg\\Email.vue'
+export { default as SvgEye } from '../..\\components\\Svg\\Eye.vue'
+export { default as SvgLock } from '../..\\components\\Svg\\Lock.vue'
+export { default as SvgLoginSvg } from '../..\\components\\Svg\\LoginSvg.vue'
+export { default as SvgPhone } from '../..\\components\\Svg\\Phone.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

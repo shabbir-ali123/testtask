@@ -82,6 +82,7 @@
               </div>
 
               <div
+                @click="HidePass()"
                 class="absolute inset-y-0 right-0 top-6 flex items-center px-2"
               >
                 <label
@@ -104,6 +105,7 @@
                 </label>
               </div>
               <input
+                id="myInput"
                 type="password"
                 v-model="userData.password"
                 placeholder=" Masukana Password"
@@ -130,6 +132,7 @@
               />
             </div>
           </div>
+          <Popup v-if="hidePopup" />
           <div class="flex items-baseline justify-between">
             <button
               type="submit"
@@ -160,6 +163,7 @@ export default {
   name: "login",
   data() {
     return {
+      hidePopup: false,
       userData: {
         user_account: "",
         password: "",
@@ -168,21 +172,27 @@ export default {
   },
 
   methods: {
+    HidePass() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    },
     async login(event) {
       event.preventDefault();
       try {
         this.status = "pending";
         const response = await this.$axios.post("login", this.userData);
-         if (response.status == "200") {
-           console.log(response)
-           localStorage.setItem('token', response.data.data.token)
-           this.$router.push('/Member')
-      }
-        return response;
+        if (response.status == "200") {
+          localStorage.setItem("token", response.data.data.token);
+
+          this.$router.push("/Member");
+        }
       } catch (err) {
         this.status = "error";
       }
-     
     },
   },
 };

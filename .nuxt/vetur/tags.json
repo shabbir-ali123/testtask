@@ -1,9 +1,12 @@
 {
+  "Captcha": {
+    "description": "Auto imported from components/Captcha.vue"
+  },
   "Login": {
     "description": "Auto imported from components/Login.vue"
   },
-  "MemberList": {
-    "description": "Auto imported from components/MemberList.vue"
+  "LoginPopup": {
+    "description": "Auto imported from components/LoginPopup.vue"
   },
   "MemberTable": {
     "description": "Auto imported from components/MemberTable.vue"
@@ -13,5 +16,26 @@
   },
   "Register": {
     "description": "Auto imported from components/Register.vue"
+  },
+  "UpdateMember": {
+    "description": "Auto imported from components/UpdateMember.vue"
+  },
+  "SvgBank": {
+    "description": "Auto imported from components/Svg/Bank.vue"
+  },
+  "SvgEmail": {
+    "description": "Auto imported from components/Svg/Email.vue"
+  },
+  "SvgEye": {
+    "description": "Auto imported from components/Svg/Eye.vue"
+  },
+  "SvgLock": {
+    "description": "Auto imported from components/Svg/Lock.vue"
+  },
+  "SvgLoginSvg": {
+    "description": "Auto imported from components/Svg/LoginSvg.vue"
+  },
+  "SvgPhone": {
+    "description": "Auto imported from components/Svg/Phone.vue"
   }
 }
