@@ -184,11 +184,13 @@ export default {
         const response = await this.$axios.post("login", this.userData);
         if (response.status == "200") {
           localStorage.setItem("token", response.data.data.token);
-
+          this.$toast.success(`Login Successfully`);
+          setTimeout(this.$toast.clear, 4000);
           this.$router.push("/Member");
         }
-      } catch (err) {
-        this.status = "error";
+      } catch (e) {
+        this.$toast.error(e);
+        setTimeout(this.$toast.clear, 4000);
       }
     },
   },

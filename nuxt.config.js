@@ -29,7 +29,21 @@ export default {
   buildModules: ["@nuxt/postcss8"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [["@nuxtjs/axios"]],
+  modules: ["@nuxtjs/axios", "@nuxtjs/toast"],
+  toast: {
+    position: "top-center",
+    register: [
+      // Register custom toasts
+      {
+        name: "my-error",
+        message: "Oops...Something went wrong",
+
+        options: {
+          type: "error",
+        },
+      },
+    ],
+  },
 
   axios: {
     baseURL: "https://apiagent.cikatechdev.fun/api/v1",

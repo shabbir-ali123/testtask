@@ -1,6 +1,6 @@
 <template>
   <div class="primary d-flex items-center justify-center w-full min-h-screen">
-    <div class="md:px-8 py-16 mx-32 lg:mx-20 mt-4">
+    <div class="md:px-8 py-4 mx-32 lg:mx-20">
       <form>
         <div class="max-w-4xl mx-auto">
           <h2 class="main__heading text-2xl py-8">
@@ -79,10 +79,10 @@
             </div>
           </div>
 
-          <div class="flex justify-center w-full">
+          <div class="flex justify-center w-full py-4">
             <button
               type="submit"
-              @click="Back"
+              @click="Back()"
               style="color: white"
               class="btn1 px-6 font-bold text-2xl py-4 mt-4 text-white rounded-lg w-full mx-2 hover:bg-rose-900"
             >
@@ -147,15 +147,19 @@ export default {
         const response = await this.$axios.post(
           "/member/updateAccount",
           this.userData,
+
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
         );
-        alert(response.data.message);
+
         this.Back();
-      } catch (err) {}
+      } catch (e) {
+        this.$toast.error("please fill fields correctly");
+        setTimeout(this.$toast.clear, 4000);
+      }
     },
     Back() {
       this.$router.push("/member");

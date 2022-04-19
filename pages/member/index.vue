@@ -1,9 +1,9 @@
 <template>
   <div class="main__wrapper">
     <div class="min-h-screen max-w-6xl mx-auto">
-      <div class="flex justify-between mx-10 py-20">
+      <div class="flex justify-between items-center mx-10 py-20">
         <div class="flex items-center">
-          <h2 class="text-secondary text-2xl font-extrabold">Member List</h2>
+          <h2 class="text-secondary text-3xl font-extrabold">Member List</h2>
         </div>
         <div>
           <div class="searchBar pt-2 relative mx-auto text-gray-600">
@@ -84,10 +84,15 @@ export default {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
+          this.$toast.success(`Delete SuccessFully`),
+          setTimeout(this.$toast.clear, 4000)
         );
         this.getMemberList(id);
-      } catch (err) {}
+      } catch (e) {
+        this.$toast.error(e);
+        setTimeout(this.$toast.clear, 4000);
+      }
     },
   },
 };

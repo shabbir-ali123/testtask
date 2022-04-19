@@ -321,7 +321,7 @@
           <div>
             <input
               v-model="userData.account_number"
-              type="text"
+              type="number"
               placeholder="No Rekening"
               style="background-color: #28223c"
               class="w-full px-24 py-5 mt-2 blue text-white rounded-sm outline-none focus:ring-1 focus:ring-blue-600"
@@ -448,7 +448,10 @@ export default {
         const response = await this.$axios.post("register", this.userData);
         this.hidePopup = this.hidePopup = true;
         // this.$router.push("/");
-      } catch (err) {}
+      } catch (e) {
+        this.$toast.error(e);
+        setTimeout(this.$toast.clear, 4000);
+      }
     },
   },
 };
