@@ -1,7 +1,8 @@
 <template>
   <div class="main__wrapper">
+    <Header />
     <div class="min-h-screen max-w-6xl mx-auto">
-      <div class="flex justify-between items-center mx-10 py-20">
+      <div class="flex justify-between items-center mx-10 py-10">
         <div class="flex items-center">
           <h2 class="text-secondary text-3xl font-extrabold">Member List</h2>
         </div>
@@ -27,6 +28,8 @@
                 type="search"
                 name="search"
                 placeholder="Search..."
+                v-model="message"
+                @keyup="SearchMember"
               />
             </div>
           </div>
@@ -35,32 +38,85 @@
       <MemberTable
         @edit="edit($event)"
         @deleteUser="deleteUser($event)"
-        :members="userData"
+        :members="userData.data"
       />
     </div>
+    <Pagination
+      :totalPages="totalPages"
+      :perPage="10"
+      :currentPage="currentPage"
+      @pagechanged="onPageChange"
+    />
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      hidePopup: false,
+      show: false,
       userData: [],
+      tempData: [],
+      message: "",
+      page: 1,
+      currentPage: 1,
+      totalPages: 0,
     };
+  },
+  props: {
+    total: {
+      type: Number,
+      default: 0,
+    },
+    current: {
+      type: Number,
+      default: 1,
+    },
+    limit: {
+      type: Number,
+      default: 4,
+      coerce: function (limit) {
+        return limit - 1;
+      },
+    },
   },
   mounted() {
     this.getMemberList();
   },
+  // //  watch:{
+  //     Next();
+  //   },
+
   methods: {
+    onPageChange(page) {
+      this.currentPage = page;
+      this.getMemberList();
+      console.log(page);
+    },
+    Nextpagination() {
+      this.page++;
+      this.getMemberList();
+      console.log(this.page);
+    },
+    Previouspagination() {
+      this.page--;
+      this.getMemberList();
+      console.log(this.page);
+    },
     async getMemberList() {
       try {
-        const response = await this.$axios.get("member/accountList", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await this.$axios.get(
+          `member/accountList?page=${this.currentPage}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         this.userData = response.data.data;
-        console.log(response.data.data);
+        this.tempData = this.userData;
+        this.totalPages = Math.round(this.userData.total / 10);
+        console.log(this.totalPages);
+        // console.log(, "data");
       } catch (err) {
         this.status = "error";
       }
@@ -69,7 +125,7 @@ export default {
       console.log(this.$auth, "auth");
       this.$nextTick(() => {
         this.$router.push({
-          path: `member/${member.username}`,
+          path: `/member/member${member.username}`,
         });
         this.$session.set("member", member);
       });
@@ -93,6 +149,14 @@ export default {
         this.$toast.error(e);
         setTimeout(this.$toast.clear, 4000);
       }
+    },
+    async SearchMember(e) {
+      try {
+        const filterData = this.tempData.filter((user) =>
+          user.username.includes(this.message)
+        );
+        this.userData.data = filterData;
+      } catch (e) {}
     },
   },
 };

@@ -1,12 +1,17 @@
 <template>
-  <div class="primary flex items-center justify-center min-h-screen">
-    <div class="md:px-8 py-6 mx-10 lg:mx-32 mt-4 text-left w-full">
-      <h3 style="color: white" class="text-6xl text-white font-bold">Login</h3>
-      <p style="color: white" class="text-2xl text-white py-4">
-        Masuk dan daptkan bonus tiap minggunya
-      </p>
+  <div class="MYprimary flex justify-between items-center">
+    <div class="image">
+      <img src="../assets/images/picture.jpg" alt="" />
+    </div>
+    <div class="md:px-8 py-6">
       <form>
         <div class="form_wrapper">
+          <h3 style="color: white" class="text-6xl text-white font-bold">
+            Login
+          </h3>
+          <p style="color: white" class="text-2xl text-white py-4">
+            Masuk dan daptkan bonus tiap minggunya
+          </p>
           <div class="grid grid-cols-1">
             <div class="absolute mt-6 px-8">
               <svg
@@ -168,7 +173,9 @@ export default {
       },
     };
   },
-
+  // mounted() {
+  //   this.storeToken();
+  // },
   methods: {
     HidePass() {
       var x = document.getElementById("myInput");
@@ -178,18 +185,23 @@ export default {
         x.type = "password";
       }
     },
+
     async login(event) {
       event.preventDefault();
       try {
         const response = await this.$axios.post("login", this.userData);
+
         if (response.status == "200") {
           localStorage.setItem("token", response.data.data.token);
+          localStorage.setItem("user", this.userData.user_account);
           this.$toast.success(`Login Successfully`);
           setTimeout(this.$toast.clear, 4000);
           this.$router.push("/Member");
+        } else {
+          console.log(response.message);
         }
-      } catch (e) {
-        this.$toast.error(e);
+      } catch (err) {
+        this.$toast.error(err.response.data.message);
         setTimeout(this.$toast.clear, 4000);
       }
     },
@@ -201,8 +213,12 @@ export default {
 .textWhite {
   color: #ffff;
 }
-.primary {
+.MYprimary {
   background-color: #201b2f;
+  height: 100vh;
+}
+.image img {
+  height: 100vh;
 }
 input {
   background-color: #28223c;

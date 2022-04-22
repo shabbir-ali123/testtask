@@ -1,5 +1,7 @@
 <template>
-  <UpdateMember />
+  <div>
+    <UpdateMember />
+  </div>
 </template>
 <script>
 export default {

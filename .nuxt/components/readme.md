@@ -6,8 +6,10 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
+- `<Header>` | `<header>` (components/Header.vue)
 - `<Login>` | `<login>` (components/Login.vue)
 - `<MemberTable>` | `<member-table>` (components/MemberTable.vue)
+- `<Pagination>` | `<pagination>` (components/Pagination.vue)
 - `<Popup>` | `<popup>` (components/Popup.vue)
 - `<Register>` | `<register>` (components/Register.vue)
 - `<UpdateMember>` | `<update-member>` (components/UpdateMember.vue)
@@ -17,3 +19,4 @@ You can directly use them in pages and other components without the need to impo
 - `<SvgLock>` | `<svg-lock>` (components/Svg/Lock.vue)
 - `<SvgLoginSvg>` | `<svg-login-svg>` (components/Svg/LoginSvg.vue)
 - `<SvgPhone>` | `<svg-phone>` (components/Svg/Phone.vue)
+- `<SvgPic>` | `<svg-pic>` (components/Svg/Pic.vue)

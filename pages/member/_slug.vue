@@ -1,5 +1,6 @@
 <template>
-  <div class="primary d-flex items-center justify-center w-full min-h-screen">
+  <div class="wrapper d-flex items-center justify-center w-full min-h-screen">
+    <Header />
     <div class="md:px-8 py-4 mx-32 lg:mx-20">
       <form>
         <div class="max-w-4xl mx-auto">
@@ -79,7 +80,7 @@
             </div>
           </div>
 
-          <div class="flex justify-center w-full py-4">
+          <div class="buttons flex justify-center w-full py-4">
             <button
               type="submit"
               @click="Back()"
@@ -97,11 +98,19 @@
           </div>
         </div>
       </form>
+      <!-- <ValidationProvider rules="required|alpha" v-slot="{ errors }">
+        <input type="text" v-model="value" />
+        <span>{{ errors[0] }}</span>
+      </ValidationProvider> -->
     </div>
   </div>
 </template>
 <script>
+// import { ValidationProvider } from "vee-validate";
 export default {
+  // components: {
+  //   ValidationProvider,
+  // },
   data() {
     return {
       userData: this.$session && this.$session.get("member"),
@@ -113,7 +122,14 @@ export default {
   mounted() {
     this.getBankList();
   },
+  // components: {
+  //   Field,
+  //   Form,
+  // },
   methods: {
+    // isRequired(value) {
+    //   return value ? true : "This field is required";
+    // },
     async getBankList() {
       try {
         const list = await this.$axios.get("/bank/bank_wd", {
@@ -145,7 +161,7 @@ export default {
       console.log(this.userData);
       try {
         const response = await this.$axios.post(
-          "/member/updateAccount",
+          "member/updateAccount",
           this.userData,
 
           {
@@ -154,10 +170,12 @@ export default {
             },
           }
         );
+        this.$toast.success(response.data.message);
+        setTimeout(this.$toast.clear, 4000);
 
         this.Back();
-      } catch (e) {
-        this.$toast.error("please fill fields correctly");
+      } catch (err) {
+        this.$toast.error(err.response.data.message);
         setTimeout(this.$toast.clear, 4000);
       }
     },
@@ -168,6 +186,13 @@ export default {
 };
 </script>
 <style scoped>
+.wrapper {
+  background-color: #201b2f;
+}
+.buttons {
+  background-color: #201b2f;
+  width: 100%;
+}
 .readOnly {
   color: #fdd032;
   opacity: 1; /* Firefox */

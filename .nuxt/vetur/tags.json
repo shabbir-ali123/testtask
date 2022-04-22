@@ -1,9 +1,15 @@
 {
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
   "Login": {
     "description": "Auto imported from components/Login.vue"
   },
   "MemberTable": {
     "description": "Auto imported from components/MemberTable.vue"
+  },
+  "Pagination": {
+    "description": "Auto imported from components/Pagination.vue"
   },
   "Popup": {
     "description": "Auto imported from components/Popup.vue"
@@ -31,5 +37,8 @@
   },
   "SvgPhone": {
     "description": "Auto imported from components/Svg/Phone.vue"
+  },
+  "SvgPic": {
+    "description": "Auto imported from components/Svg/Pic.vue"
   }
 }
