@@ -138,6 +138,7 @@ export default {
             secret: "secret",
           },
         });
+        console.log(this.userData, "my");
         this.banks = list.data.data.bank;
         this.banks.forEach((element) => {
           if (
@@ -158,7 +159,7 @@ export default {
       } else {
         this.userData["bank_name"] = this.currentBank;
       }
-      console.log(this.userData);
+      console.log(this.userData, "SAdfgh");
       try {
         const response = await this.$axios.post(
           "member/updateAccount",
@@ -180,7 +181,7 @@ export default {
       }
     },
     Back() {
-      this.$router.push("/member");
+      this.$router.push("/member/");
     },
   },
 };
@@ -207,6 +208,7 @@ label {
   background-color: #1a82fd;
 }
 .musak {
+  background-color: #fd1a79;
   color: white;
 }
 .main__heading {

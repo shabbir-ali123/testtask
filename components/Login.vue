@@ -3,7 +3,13 @@
     <div class="image">
       <img src="../assets/images/picture.jpg" alt="" />
     </div>
-    <div class="md:px-8 py-6">
+    <div class="md:px-16 py-6">
+      <!-- <captcha-code
+        hidden
+        :captcha.sync="code"
+        @on-change="handleChange"
+        ref="captcha"
+      ></captcha-code> -->
       <form>
         <div class="form_wrapper">
           <h3 style="color: white" class="text-6xl text-white font-bold">
@@ -121,22 +127,28 @@
           </div>
           <div class="grid grid-cols-12 mt-3">
             <div
+              id="captcha"
+              @click="Numbers"
               style="background-color: #5b32fd; color: white"
               class="col-span-4 md:col-span-3 text-white py-4 px-4 flex justify-evenly items-center"
             >
               <button class="border-r-4 px-2 md:text-xl">Captcha</button>
               <h2 class="font-normal px-3 md:font-bold text-xl md:text-3xl">
-                24
+                {{ randomNumber }}
               </h2>
             </div>
+
             <div class="col-span-8 md:col-span-9">
               <input
-                type="code"
+                :value="randomInputValue"
+                @change="handleChange"
+                type="number"
                 placeholder=" Enter this code here"
                 class="w-full text-sm px-4 py-6 md:px-10 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
           </div>
+
           <div class="flex items-baseline justify-between">
             <button
               type="submit"
@@ -163,20 +175,39 @@
 </template>
 
 <script>
+// import CaptchaCode from "vue-captcha-code";
 export default {
   name: "login",
+
   data() {
     return {
+      randomNumber: "",
       userData: {
         user_account: "",
         password: "",
       },
+      randomInputValue: "",
     };
   },
-  // mounted() {
-  //   this.storeToken();
-  // },
+  mounted() {
+    // this.Numbers();
+    const cap = document.getElementById("captcha");
+    cap.addEventListener("click", (event) => {
+      this.Numbers(event);
+    });
+    cap.click();
+  },
   methods: {
+    handleChange(event) {
+      this.randomInputValue = event.target.value;
+    },
+    Numbers(event) {
+      event.preventDefault();
+      this.randomNumber = Math.floor(Math.random(2) * 30);
+    },
+    check(event) {
+      event.preventDefault();
+    },
     HidePass() {
       var x = document.getElementById("myInput");
       if (x.type === "password") {
@@ -190,15 +221,25 @@ export default {
       event.preventDefault();
       try {
         const response = await this.$axios.post("login", this.userData);
-
+        console.log(response.data);
         if (response.status == "200") {
           localStorage.setItem("token", response.data.data.token);
-          localStorage.setItem("user", this.userData.user_account);
+          localStorage.setItem(
+            "user",
+
+            this.userData.user_account
+          );
+          console.log(this.userData);
+        } else {
+          console.log(response);
+        }
+        if (this.randomNumber == this.randomInputValue) {
           this.$toast.success(`Login Successfully`);
           setTimeout(this.$toast.clear, 4000);
           this.$router.push("/Member");
         } else {
-          console.log(response.message);
+          this.$toast.error("Wrong Captcha");
+          setTimeout(this.$toast.clear, 4000);
         }
       } catch (err) {
         this.$toast.error(err.response.data.message);
@@ -209,7 +250,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 .textWhite {
   color: #ffff;
 }

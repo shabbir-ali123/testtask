@@ -15,7 +15,5 @@
 //   }
 // })
 
-
-
 // // Install the store instance as a plugin
 // app.use(store)

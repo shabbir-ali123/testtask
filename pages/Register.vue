@@ -1,9 +1,8 @@
 <template>
-    <Register/>
+  <Register />
 </template>
 <script>
 export default {
-  name: 'Page',
-  
-}
+  name: "Page",
+};
 </script>

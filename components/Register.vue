@@ -1,6 +1,6 @@
 <template>
   <div class="secondary">
-    <div class="flex justify-evenly">
+    <div class="flex justify-between">
       <div class="image">
         <img src="../assets/images/picture.jpg" alt="" />
       </div>

@@ -26,7 +26,7 @@
       <!-- Visible Buttons Start -->
       <li v-for="page in pages" :key="page.name" class="pagination-item">
         <button
-          class="px-2 py-1 mx-1 leading-tight white rounded-full border border-gray-300"
+          class="btns px-2 py-1 mx-1 leading-tight white rounded-full border border-gray-300"
           type="button"
           @click="onClickPage(page.name)"
           :disabled="page.isDisabled"
@@ -35,7 +35,6 @@
           {{ page.name }}
         </button>
       </li>
-      <!-- ... -->
 
       <!-- Visible Buttons End -->
 
@@ -73,7 +72,6 @@ export default {
       default: 2,
     },
     totalPages: {
-      type: Number,
       required: true,
     },
     perPage: {
@@ -96,9 +94,9 @@ export default {
       }
 
       // When on the last page
-      if (this.currentPage === this.totalPages) {
-        return this.totalPages - this.maxVisibleButtons;
-      }
+      // if (this.currentPage === this.totalPages) {
+      //   return this.totalPages - this.maxVisibleButtons;
+      // }
 
       // When inbetween
       return this.currentPage - 1;
@@ -160,9 +158,14 @@ export default {
   display: inline-block;
   color: white;
 }
-
+.btns {
+  width: 30px;
+  height: 30px;
+}
 .active {
   background-color: #5b32fd;
   color: #ffffff;
+  width: 40px;
+  height: 40px;
 }
 </style>

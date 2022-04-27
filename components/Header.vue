@@ -6,8 +6,8 @@
       </div>
       <div class="flex justify-arround px-2">
         <div class="user">
-          <h2 class="white">{{ loginUser && loginUser }}</h2>
-          <p>user.email</p>
+          <h2 class="white">{{ data.username && data.username }}</h2>
+          <p>{{ data.email && data.email }}</p>
         </div>
         <div class="logout mx-4">
           <button @click="redirect" class="white px-8 py-3 rounded-lg">
@@ -20,18 +20,32 @@
 </template>
 <script>
 export default {
+  props: ["user"],
   data() {
     return {
-      loginUser: "",
+      data: {
+        email: "",
+        username: "",
+      },
+      currentEmail: "",
+      // user: JSON.parse(localStorage.getItem("user_object")),
     };
   },
   mounted() {
-    this.loginUser = localStorage.getItem("user");
+    console.log(this.user);
+    if (this.user && this.user.username) {
+      this.data = this.user;
+    } else {
+      this.data = JSON.parse(
+        localStorage.user_object || '{"email": "", "username":""}'
+      );
+    }
   },
 
   methods: {
     redirect() {
       this.$router.push("/");
+      localStorage.clear();
     },
   },
 };
